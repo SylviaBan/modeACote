@@ -24,9 +24,11 @@
     height: 100vh;
     margin: 0;
   }
-  form {
-    background-color: #f0f0f0;
+  .custom-form {
+    max-width: 400px;
+    margin: 0 auto;
     padding: 20px;
+    background-color: #f0f0f0;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: start;
@@ -41,7 +43,7 @@
 <div class="container-fluid text-center">
   <div><h2>Ajouter un nouveau vêtement</h2></div>
 
-  <form th:action="@{/products/save}" method="post" th:object="${product}">
+  <form th:action="@{/products/save}" method="post" th:object="${product}" class="mx-auto custom-form">
     <label>Nom :</label>
     <input type="text" th:field="*{name}" required><br>
 

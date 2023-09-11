@@ -6,6 +6,7 @@ import com.example.modeacote.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -47,10 +48,22 @@ public class ProductService {
     }
 
     // DELETE
-    public void deleteProdById(Long id) {
+    public void delete(Long id) {
         prodRepo.deleteById(id);
     }
     public void deleteAllProd() {
         prodRepo.deleteAll();
+    }
+
+    public void save(Product product) {
+        prodRepo.save(product);
+    }
+
+    public Product get(Long id) throws UserNotFoundException {
+        Optional<Product> result = prodRepo.findById(id);
+        if (result.isPresent()) {
+            return result.get();
+        }
+        throw new UserNotFoundException("Product with the ID not found" +id);
     }
 }

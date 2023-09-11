@@ -22,7 +22,7 @@ public class ProductService {
     }
 
     // FIND
-    public List<Product> findAllProd() {;
+    public List<Product> listAll() {;
         return prodRepo.findAll();
     }
     public Optional<Product> findProdById(Long id) {

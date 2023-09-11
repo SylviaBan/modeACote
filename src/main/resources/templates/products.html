@@ -21,7 +21,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="product : ${products}">
+    <tr th:each="product : ${productsList}">
       <td th:text="${product.id}"></td>
       <td th:text="${product.getCategory()}"></td>
       <td th:text="${product.name}"></td>
@@ -30,14 +30,14 @@
       <td th:text="${product.color}"></td>
       <td th:text="${product.material}"></td>
       <td>
-        <a th:href="@{'/edit/' + ${product.id}}" class="btn btn-warning">Modifier</a>
-        <a th:href="@{'/delete/' + ${product.id}}" class="btn btn-danger">Supprimer</a>
+        <a th:href="@{'/products/edit/' + ${product.id}}" class="btn btn-warning">Modifier</a>
+        <a th:href="@{'/products/delete/' + ${product.id}}" class="btn btn-danger">Supprimer</a>
       </td>
     </tr>
     </tbody>
   </table>
-  <a th:href="@{/home}" class="btn btn-secondary">Home</a>
-  <a th:href="@{/add}" class="btn btn-success">Nouveau produit</a>
+  <a th:href="@{/}" class="btn btn-secondary">Home</a>
+  <a th:href="@{/products/add}" class="btn btn-success">Nouveau produit</a>
 </div>
 </body>
 </html>

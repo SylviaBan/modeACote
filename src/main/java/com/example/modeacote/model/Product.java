@@ -1,5 +1,6 @@
 package com.example.modeacote.model;
 
+import com.example.modeacote.repository.CategoryRepository;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,21 +17,28 @@ public class Product {
     private String material;
     private String brand;
 
-    public Product(Long id, String name, String color, String size, String material, String brand) {
+    // Relation Many-to-One vers Category
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+    public Product(Long id, String name, String color, String size, String material, String brand, Category category) {
         this.id = id;
         this.name = name;
         this.color = color;
         this.size = size;
         this.material = material;
         this.brand = brand;
+        this.category = category;
     }
 
-    public Product(String name, String color, String size, String material, String brand) {
+    public Product(String name, String color, String size, String material, String brand, Category category) {
         this.name = name;
         this.color = color;
         this.size = size;
         this.material = material;
         this.brand = brand;
+        this.category = category;
     }
 
     public Product(String name) {
@@ -87,4 +95,13 @@ public class Product {
     public void setBrand(String brand) {
         this.brand = brand;
     }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
 }

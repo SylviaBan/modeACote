@@ -1,6 +1,9 @@
 package com.example.modeacote.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name="category")
@@ -10,6 +13,11 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    // Relation One-to-Many vers Product
+    @JsonIgnore
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL) // "category" fait référence à la propriété dans la classe Product
+    private List<Product> products;
 
     public Category(Long id, String name) {
         this.id = id;
@@ -37,5 +45,13 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }

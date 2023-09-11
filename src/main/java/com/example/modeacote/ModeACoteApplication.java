@@ -10,6 +10,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+
 @SpringBootApplication(scanBasePackages = "com.example.modeacote")
 public class ModeACoteApplication {
 
@@ -91,13 +93,6 @@ public class ModeACoteApplication {
                 prodRepo.save(prod4);
                 prodRepo.save(prod5);
                 prodRepo.save(prod6);
-
-
-                // Test relations @OneToMany & @ManyToOne
-                prod1.setCategory(cat1);
-                prod5.setCategory(cat1);
-                prod4.setCategory(cat2);
-                prod6.setCategory(cat2);
 
             }
         };

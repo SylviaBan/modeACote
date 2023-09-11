@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>La Mode à Côte</title>
+  <th:replace th:replace="head :: head"></th:replace>
+</head>
+<body>
+<div class="container mt-5">
+<p>
+
+  <i class="fas fa-pants"></i>
+  <i class="fas hat-wizard"></i>
+  <i class="fas fa-sun-glasses"></i>
+  <i class="fas fa-gloves"></i>
+
+</p>
+  <div class="jumbotron">
+    <h1 class="display-4 text-white">
+      <i class="fas fa-sun-glasses"></i>
+      Bienvenue à La Mode à Côté
+      <i class="fas fa-tshirt"></i>
+    </h1>
+    <p class="lead">Découvrez notre nouvelle boutique de vêtements en ligne</p>
+    <hr class="my-4">
+    <p>Explorez notre collection unique de vêtements tendance.</p>
+    <a th:href="@{/list}" class="btn btn-primary btn-lg" role="button">Voir nos produits</a>
+  </div>
+</div>
+</body>
+</html>
